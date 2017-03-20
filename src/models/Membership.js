@@ -7,7 +7,7 @@ export default function(sequelize, DataTypes) {
         updatedBy: DataTypes.INTEGER
     }, {
         associate: (models) => {
-            Membership.belongsTo(models.Profile, { foreignKey: 'id', targetKey: 'membership_id' });
+            Membership.hasMany(models.Profile, { foreignKey: 'membership_id' });
         },
         tableName: 'Membership',
         timestamps: true,
