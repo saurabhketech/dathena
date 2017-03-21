@@ -1,7 +1,8 @@
-import user from '../controllers/user';
+import { Router } from 'express';
+import user from '../controllers/user'
 
-export default function(app) {
-    app.route('/user/register')
-        .post(user.create);
-
+export default () => {
+    let api = Router();
+    api.route('/user/register').post(user.create);
+    return api;
 }
