@@ -1,21 +1,14 @@
 export default function(sequelize, DataTypes) {
-    var Profile = sequelize.define('Profile', {
-        user_id: DataTypes.STRING,
-        group_id: DataTypes.STRING,
-        bat_id: DataTypes.STRING,
-        membership_id: DataTypes.STRING,
+    const Profile = sequelize.define('Profile', {
+        user_id: DataTypes.INTEGER,
+        group_id: DataTypes.INTEGER,
+        bat_id: DataTypes.INTEGER,
+        membership_id: DataTypes.INTEGER,
         firstname: DataTypes.STRING,
         lastname: DataTypes.STRING,
         dob: DataTypes.DATE,
-        outlet_id: DataTypes.STRING,
-        tme_id: DataTypes.STRING
-    }, {
-        associate: (models) => {
-            Profile.belongsTo(models.Group, { foreignKey: 'group_id', targetKey: 'id' });
-        },
-        tableName: 'Profile',
-        timestamps: true,
+        outlet_id: DataTypes.INTEGER,
+        tme_id: DataTypes.INTEGER,
     });
-
     return Profile
 }

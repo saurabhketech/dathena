@@ -1,10 +1,6 @@
 export default function(sequelize, DataTypes) {
-    var Membership = sequelize.define('Membership', {
-        membershiptype: {
-            type: DataTypes.ENUM('GOLD', 'PLATINUM', 'DIAMOND'),
-        },
-        createdBy: DataTypes.INTEGER,
-        updatedBy: DataTypes.INTEGER
+    const Membership = sequelize.define('Membership', {
+        membershiptype: { type: DataTypes.ENUM('GOLD', 'PLATINUM', 'DIAMOND') }
     }, {
         associate: (models) => {
             Membership.belongsTo(models.Profile, { foreignKey: 'id', targetKey: 'membership_id' });
