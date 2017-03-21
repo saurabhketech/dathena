@@ -3,13 +3,11 @@ import models from './models';
 import config from './config';
 const db = {};
 
-console.log('Initializing Sequelize');
 // create your instance of sequelize
 const sequelize = new Sequelize(config.db.name, config.db.username, config.db.password);
 
 // load models
 Object.keys(models).forEach((modelName) => {
-    console.log(`Loading model - ${modelName}`);
     const model = models[modelName](sequelize, Sequelize.DataTypes);
     db[modelName] = model;
 });
