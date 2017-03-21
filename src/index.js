@@ -3,7 +3,7 @@ import express from 'express';
 import cors from 'cors';
 import morgan from 'morgan';
 import bodyParser from 'body-parser';
-import initializeDb from './db';
+import db from './db';
 import middleware from './middleware';
 import api from './routes';
 import config from './config.json';
@@ -22,7 +22,11 @@ app.use(cors({
 app.use(bodyParser.json({
     limit: config.bodyLimit
 }));
+// console.log(db);
+app.use(api({ config, db }));
+// console.log()
 app.server.listen(process.env.PORT || config.port);
+
 console.log(`Started on port ${app.server.address().port}`);
 // connect to db
 // initializeDb(db => {
@@ -37,5 +41,13 @@ console.log(`Started on port ${app.server.address().port}`);
 
 //     console.log(`Started on port ${app.server.address().port}`);
 // });
-
+// app.get('/sync', function(req, res) {
+//     sequelize.sync({ force: true }).success(function() {
+//         console.log('sync done');
+//         res.send(200, 'sync done');
+//     }).error(function(error) {
+//         console.log('there was a problem');
+//         res.send(200, 'there was a problem');
+//     });
+// });
 export default app;

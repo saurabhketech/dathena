@@ -4,7 +4,7 @@
     "corsHeaders": ["Link"],
     "db": {
         "host": "localhost",
-        "name": "user",
+        "name": "dathena",
         "password": 123,
         "username": "root"
     }

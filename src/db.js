@@ -1,6 +1,8 @@
 import Sequelize from 'sequelize';
 import models from './models';
 import config from './config';
+import express from 'express';
+let app = express();
 const db = {};
 
 console.log('Initializing Sequelize');
@@ -22,7 +24,7 @@ Object.keys(db).forEach((modelName) => {
     }
 });
 
-
+// console.log(sequelize);
 export default Object.assign({}, db, {
     sequelize,
     Sequelize
